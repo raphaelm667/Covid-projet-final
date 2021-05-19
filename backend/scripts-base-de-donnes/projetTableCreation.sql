@@ -26,11 +26,9 @@ CONSTRAINT pkVille PRIMARY KEY (idVille),
 
 CREATE TABLE dateVisite(
 idPers VARCHAR(4) NOT NULL,
-idTest VARCHAR(4) NOT NULL,
 idVille VARCHAR(4) NOT NULL,
 dateVisite DATE,
 CONSTRAINT pkpersToTest PRIMARY KEY (idPers,idTest,idVille),
 CONSTRAINT fkpersToTest FOREIGN KEY (idPers) REFERENCES tbPersonnes(idPers),
-CONSTRAINT fktestToTest FOREIGN KEY (idTest) REFERENCES tbTest(idTest),
 CONSTRAINT fkvilleToTest FOREIGN KEY (idVille) REFERENCES tbVille(idVille)
 )
