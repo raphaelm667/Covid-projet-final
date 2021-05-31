@@ -23,9 +23,17 @@ function ecranVille(){
 function ajouterVille(x){
     let xhr = new XMLHttpRequest();
     xhr.open('get','InsertVilles?codepost='+x.codePostal.value+'&nomvill='+x.nomVille.value,true);
+    xhr.onload = reloadVille;
     xhr.send();
     x.codePostal.value = "";
     x.nomVille.value = "";
-    window.location.reload();
     return false;
+}
+
+function reloadVille()
+{
+    let laDate = new Date();
+    let html = "Ajout effectué ! le "+(laDate.getDate())+"/"+(laDate.getMonth()+1)+"/"+(laDate.getFullYear());
+    document.getElementById("formAjoutVille").innerHTML += html;
+    affichVille();
 }
